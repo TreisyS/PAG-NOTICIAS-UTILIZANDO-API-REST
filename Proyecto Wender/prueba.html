@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias API</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="In.css">
+</head>
+<body>
+
+    <h1>Noticias</h1>
+    <form id="filterForm">
+        <label for="pais">Filtrar por País:</label>
+        <input type="text" id="pais" name="pais">
+
+        <label for="categoria">Filtrar por Categoría:</label>
+        <input type="text" id="categoria" name="categoria">
+
+        <label for="busqueda">Buscar:</label>
+        <input type="text" id="busqueda" name="busqueda">
+
+        <button type="button" id="filterButton">Filtrar</button>
+    </form>
+   
+    <div id="noticias-list">
+      
+    </div>
+
+    <div id="pagination">
+        <button id="prevPage">Anterior</button>
+        <button id="nextPage">Siguiente</button>
+    </div>
+
+    <script src="NoticiasConsultraFiltro.js" asp-append-version="true"></script>
+
+    <script>
+        const apiUrl = 'https://localhost:7014/api/Noticias';
+        let currentPage = 1;
+        const pageSize = 10;
+
+        function cargarNoticias(url, page, pageSize) {
+            $.ajax({
+                url: `${url}?page=${page}&pageSize=${pageSize}`,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    mostrarNoticias(data);
+                },
+                error: function (error) {
+                    console.error('Error al obtener noticias:', error);
+                }
+            });
+        }
+
+        function mostrarNoticias(noticias) {
+            const noticiasListContainer = $('#noticias-list');
+            noticiasListContainer.empty();
+
+            noticias.forEach(noticia => {
+                const noticiaHTML = `
+                    <div id="noticiasitem">
+                        <h2>${noticia.titulo}</h2>
+                        <p><strong>Fecha:</strong> ${noticia.fecha}</p>
+                        <p><strong>Contenido:</strong> ${noticia.contenido}</p>
+                        
+                        <button type="button" onclick="mostrarDetalles('${noticia.pais}', '${noticia.categoria}', '${noticia.fuente}', '${noticia.enlace}', '${noticia.autor}', ${noticia.id})">Detalles</button>
+                        
+                        <div id="detalles-${noticia.id}" class="detalles"></div>
+                    </div>
+                    <hr>
+                `;
+                noticiasListContainer.append(noticiaHTML);
+            });
+        }
+
+        function mostrarDetalles(pais, categoria, fuente, enlace, autor, id) {
+            const detallesContainer = $(`#detalles-${id}`);
+            const detallesHTML = `
+                <p><strong>País:</strong> ${pais}</p>
+                <p><strong>Categoría:</strong> ${categoria}</p> 
+                <p><strong>Fuente:</strong> ${fuente}</p>
+                <p><strong>Enlace:</strong> ${enlace}</p>
+                <p><strong>Autor:</strong> ${autor}</p>
+            `;
+            detallesContainer.html(detallesHTML).toggle();
+        }
+
+        function filterItems() {
+            const pais = $('#pais').val();
+            const categoria = $('#categoria').val();
+            const busqueda = $('#busqueda').val();
+
+            let filteredUri = 'https://localhost:7014/api/Noticias';
+
+            if (pais) {
+                filteredUri += `/ByCountry/${pais}`;
+            } else if (categoria) {
+                filteredUri += `/ByCategory/${categoria}`;
+            } else if (busqueda) {
+                filteredUri += `/BySearch/${encodeURIComponent(busqueda)}`; 
+            }
+
+            cargarNoticias(filteredUri, currentPage, pageSize);
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                cargarNoticias(apiUrl, currentPage, pageSize);
+            }
+        }
+
+        function nextPage() {
+            currentPage++;
+            cargarNoticias(apiUrl, currentPage, pageSize);
+        }
+
+        $(document).ready(function () {
+            $('#filterButton').click(filterItems);
+            $('#prevPage').click(prevPage);
+            $('#nextPage').click(nextPage);
+
+            cargarNoticias(apiUrl, currentPage, pageSize);
+        });
+    </script>
+</body>
+</html>

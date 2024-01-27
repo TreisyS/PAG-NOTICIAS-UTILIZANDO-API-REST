@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Noticias GESTION</title>
+    <link rel="stylesheet" href="Estilos.css">
+</head>
+<body>
+ 
+ 
+    <h1>Noticias GESTION</h1>
+    <a href="int1.html">
+        <button type="button" id="gestionn">Volver</button>
+    </a>
+    <form id="filterForm">
+        <label for="pais">Filtrar por País:</label>
+        <input type="text" id="pais" name="pais">
+
+        <label for="categoria">Filtrar por Categoría:</label>
+        <input type="text" id="categoria" name="categoria">
+
+        <label for="busqueda">Buscar:</label>
+        <input type="text" id="busqueda" name="busqueda">
+
+        <button type="button" onclick="filterItems()">Filtrar</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>País</th>
+            <th>Categoría</th>
+            <th>Fecha</th>
+            <th>Fuente</th>
+            <th>Contenido</th>
+            <th>Enlace</th>
+            <th>Autor</th>
+            <th>Acciones</th>
+        </tr>
+        <tbody id="noticias"></tbody>
+    </table>
+
+    <p id="counter"></p>
+
+    <div id="pagination">
+        <button id="prevPage" onclick="prevPage()">Anterior</button>
+        <button id="nextPage" onclick="nextPage()">Siguiente</button>
+    </div>
+
+    <button type="button" id="botoncreacion" onclick="showCreateForm()">Agregar Noticia</button>
+
+    <div id="editForm"  class="form-container">
+        <h2>Editar Noticia</h2>
+        <input type="hidden" id="editIdNoticia" name="editIdNoticia">
+
+        <label for="editTitulo">Título:</label>
+        <input type="text" id="editTitulo" name="editTitulo">
+    
+        <label for="editPais">País:</label>
+        <input type="text" id="editPais" name="editPais">
+    
+        <label for="editCategoria">Categoría:</label>
+        <input type="text" id="editCategoria" name="editCategoria">
+    
+        <label for="editFecha">Fecha:</label>
+        <input type="text" id="editFecha" name="editFecha">
+    
+        <label for="editFuente">Fuente:</label>
+        <input type="text" id="editFuente" name="editFuente">
+    
+        <label for="editContenido">Contenido:</label>
+        <textarea id="editContenido" name="editContenido"></textarea>
+    
+        <label for="editEnlace">Enlace:</label>
+        <input type="text" id="editEnlace" name="editEnlace">
+    
+        <label for="editAutor">Autor:</label>
+        <input type="text" id="editAutor" name="editAutor">
+    
+        <button type="button" id="saveEditedNoticia" onclick="saveEditedNoticia()">Guardar Cambios</button>
+
+
+        <button type="button" onclick="cancelEdit()">Cancelar</button>
+    </div>
+
+    <div id="createForm" class="form-container">
+        <h2>Agregar Noticia</h2>
+    
+        <label for="createTitulo">Título:</label>
+        <input type="text" id="createTitulo" name="createTitulo">
+    
+        <label for="createPais">País:</label>
+        <input type="text" id="createPais" name="createPais">
+    
+        <label for="createCategoria">Categoría:</label>
+        <input type="text" id="createCategoria" name="createCategoria">
+    
+        <label for="createFecha">Fecha:</label>
+        <input type="text" id="createFecha" name="createFecha">
+    
+        <label for="createFuente">Fuente:</label>
+        <input type="text" id="createFuente" name="createFuente">
+    
+        <label for="createContenido">Contenido:</label>
+        <textarea id="createContenido" name="createContenido"></textarea>
+    
+        <label for="createEnlace">Enlace:</label>
+        <input type="text" id="createEnlace" name="createEnlace">
+    
+        <label for="createAutor">Autor:</label>
+        <input type="text" id="createAutor" name="createAutor">
+    
+        <button id="gestionn" type="button" onclick="saveCreatedNoticia()">Agregar Noticia</button>
+    
+        <button type="button" onclick="cancelCreate()">Cancelar</button>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+   
+
+<script src="site.js" asp-append-version="true"></script>
+
+</body>
+</html>

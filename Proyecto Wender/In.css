@@ -1,0 +1,129 @@
+.noticias-list
+{
+border-radius: 2cm;
+border-color: black solid;
+padding: 50px;
+}
+.detalles {
+    display: none;
+    margin-top: 10px;
+}
+.pag
+{
+    width: 100%;
+    height: 140px;
+    background-color: rgb(24, 8, 8);
+    display: grid;
+place-content: center;
+    justify-content: center;
+    
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#filterForm {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    padding: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #04565c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+#gestionn
+{
+    margin: 20px 20px;
+    padding: 10px 20px;
+}
+#noticias-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#noticiasitem {
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#filterForm
+{
+    background-color:rgb(149, 185, 185);
+    padding: 20px 20px;
+}
+h1{
+    margin:20px;
+}
+#noticiasitem h2 {
+    color: #09565c;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#detalles {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+.PAG {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#pagination button {
+    padding: 5px 10px;
+    background-color: #033d3a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+
+#categorias-bar {
+    display: flex;
+    justify-content: space-around;
+   
+    background-color: #054047;
+}
+
+#categorias-bar button {
+    padding: 12px 16px;
+    cursor: pointer;
+    background-color: #054047;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    
+}
+
+#botoncreacion
+{
+    margin:10px;
+}

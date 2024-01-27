@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias API</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+   <link rel="stylesheet" href="In.css">
+</head>
+<body>
+
+    <h1>Noticias Atrenea</h1> 
+    <a href="Gestión.html">
+        <button type="button" id="gestionn">Gestion</button>
+    </a>
+  
+    <div id="categorias-bar">
+        
+    </div>
+
+    
+    <form id="filterForm">
+        <label for="pais">Filtrar por País:</label>
+        <input type="text" id="pais" name="pais">
+
+        <label for="categoria">Filtrar por Categoría:</label>
+        <input type="text" id="categoria" name="categoria">
+
+        <label for="busqueda">Buscar:</label>
+        <input type="text" id="busqueda" name="busqueda">
+
+        <button type="button" onclick="filterItems()">Filtrar</button>
+    </form>
+   
+    <div id="noticias-list">
+      
+    </div>
+
+
+    
+
+    <div class="PAG">
+        <div id="pagination">
+            <button id="prevPage" onclick="prevPage()">⏴</button>
+            <button id="nextPage" onclick="nextPage()">⏵</button>
+        </div>
+    
+    </div>
+
+ 
+
+    
+   <script src="NoticiasConsultraFiltro.js" asp-append-version="true"></script>
+</body>
+</html>

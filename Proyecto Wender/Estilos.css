@@ -1,0 +1,126 @@
+input[type='submit'], button, [aria-label] {
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    padding: 5px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #042a3b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+#gestionn
+{
+    margin: 20px 20px;
+    padding: 10px 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgb(168, 187, 204);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #07415c;
+    color: #fff;
+}
+
+#editForm {
+    display: none;
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#editForm h2 {
+    color: #115879;
+}
+
+#pagination {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#prevPage, #nextPage {
+    padding: 8px 15px;
+    background-color: #07415c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+/* Estilos para los formularios */
+.form-container {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    background-color: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.form-container h2 {
+    text-align: center; 
+}
+
+.form-container label {
+    display: block; 
+    margin-bottom: 8px; 
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%; 
+    padding: 8px; 
+    margin-bottom: 16px; 
+    box-sizing: border-box; 
+}
+
+.form-container button {
+    background-color: #1d705e; 
+    color: #fff; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.form-container button:hover {
+    background-color: #45a049; 
+}
